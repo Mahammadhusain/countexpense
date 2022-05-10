@@ -1,0 +1,437 @@
+{% extends 'base.html' %} {% block title %} {% endblock title %} {% block body %}
+<!-- Manage Daily  -->
+
+<section>
+  <div class="container p-3">
+    
+
+
+    <div class="row text-center">
+      <div class="col-sm-12  col-lg-12 ">
+        <!-- Credit Button  -->
+        <button type="button" class="btn  btn-success mt-1" data-toggle="modal" data-target="#credit">
+          <i class="fas fa-plus-circle"></i> Credit
+        </button>
+
+        <!-- Credit Modal -->
+        <div class="modal fade" id="credit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Credit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="" method="POST" id="creditform">
+                  <div class="container">
+                    {% csrf_token %}
+                    {{creditform.as_p}}
+
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                  Close
+                </button>
+                <button type="button" id="creditbtn" class="btn btn-primary">
+                  Credit
+                </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Debit Button  -->
+        <button type="button" class="btn btn-danger mt-1" data-toggle="modal" data-target="#debit">
+          <i class="fas fa-minus-circle"></i> Debit
+        </button>
+
+        <!-- Debit Modal -->
+        <div class="modal fade" id="debit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Debit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                
+              <form action="" method="POST" id="debitform">
+                <div class="modal-body">
+
+                  {% csrf_token %}
+                  {{debitform.as_p}}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                  </button>
+                  <button type="button" id="debitbtn"  class="btn btn-primary">
+                    Debit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- transfer Button  -->
+        <button type="button" class="btn btn-info mt-1" data-toggle="modal" data-target="#transfer">
+          <i class="fas fa-exchange-alt"></i> Transfer
+        </button>
+
+        <!-- transfer Modal -->
+        <div class="modal fade" id="transfer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Transfer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                
+              <form action="" method="POST" id="transferform">
+                <div class="modal-body">
+
+                  {% csrf_token %}
+                  {{transferform.as_p}}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                  </button>
+                  <button type="button" id="transferbtn"  class="btn btn-primary">
+                    Transfer
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fast Button  -->
+        <button type="button" class="btn btn-secondary mt-1" data-toggle="modal" data-target="#genfastbtn">
+          <i class="fas fa-fighter-jet"></i> Create Fast Button
+        </button>
+
+        <!-- Fast Button Modal -->
+        <div class="modal fade" id="genfastbtn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Fast Button</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                
+              <form action="" method="POST" id="genfastbtnform">
+                <div class="modal-body">
+                  {% csrf_token %}
+
+                  {{fastbtnform.as_p}}
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                  </button>
+                  <button type="button" id="fastbtngen"  class="btn btn-primary">
+                    Create Fast Button
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+
+
+
+  </div>
+
+ 
+</section>
+
+<!-- Quick Buttons -->
+<section>
+  <div class="container p-3">
+    <div class="row">
+
+
+      <div class="col-sm-12 col-md-6 col-lg-6 p-3">
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="credit">
+              <h2 class="mb-0">
+                <button class="btn btn-block btn-link btn-block text-left" type="button" data-toggle="collapse"
+                  data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Credit
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="credit" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="container">
+                  <div class="row">
+                    {% for i in fast_btn %}
+                    {% if i.btn_type == 'Credit' %}
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                      <button type="submit"  onclick="myfun('{{i.id}}')" class="btn btn-block btn-success mr-2 mt-2 ">
+                        <i class="fas fa-plus-circle"></i> Fast {{i.amt}} <br>
+                      </button>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="debit">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Debit
+                </button>
+              </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="debit" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="row">
+                  {% for i in fast_btn %}
+                    
+                    {% if i.btn_type == 'Debit' %}
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                      <button class="btn btn-block btn-danger mr-2 mt-2 "  onclick="myfun('{{i.id}}')">
+                        <i class="fas fa-minus-circle"></i> Fast {{i.amt}} <br>
+                      </button>
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                  <!-- /fastbtn/?bid={{i.id}} -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="transfer">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                  data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Transfer
+                </button>
+              </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="transfer" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="row ">
+
+                  <div class="col-lg-12 bg-dark text-center text-light" style="border-radius: 5px;">Fast Credit</div>
+                  {% for i in fast_btn %}
+                  {% if i.btn_type == 'Credit Transfer' and i.tag == 'Fast Credit Transfer' %}
+                  <div class="col-lg-4 mb-2 mt-2 " >
+                      <button class="btn btn-success btn-block"  onclick="myfun('{{i.id}}')">
+                        <i class="fas fa-plus-circle"></i> Fast {{i.amt}} <br>
+                      </button>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                  <div class="col-lg-12 bg-dark text-center text-light mt-2" style="border-radius: 5px;">Fast Debit</div>
+                  {% for i in fast_btn %}
+                  {% if i.btn_type == 'Debit Transfer' and i.tag == 'Fast Debit Transfer' %}
+                  <div class="col-lg-4 mb-2 mt-2">
+                      <button class="btn btn-danger btn-block"  onclick="myfun('{{i.id}}')">
+                        <i class="fas fa-minus-circle"></i> Fast {{i.amt}} <br>
+                      </button>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+
+                                    
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- History Statement  -->
+      <div class="col-sm-12 col-md-12 col-lg-6  p-3">
+
+        <ul class="nav nav-pills mb-3 bg-light " id="pills-tab" role="tablist">
+          <li class="nav-item " role="presentation">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Credit Entries</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Debit Entries</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Transfer Entries</a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent" >
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <label for=""><strong class="text-muted">Total:{{agg_credit}}</strong></label>
+            <input class="form-control form-control-sm col-sm-12 col-md-6 col-lg-6 float-right bg-light " id="creditsearch" type="text" placeholder="Search Credit Entries">
+            <div style="overflow-y: auto; height: 320px; display: inline-block; width: 100%;">
+
+            
+              <table class="table table-sm table-borderless table-responsive-sm"  >
+                <thead  >
+                  <tr>
+                    <th scope="col">Tag</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="creditsearch" >
+                  
+                  {% for i in credit_data %}
+                  <tr class="table-success">
+                    <td><i class="fas fa-plus-circle text-success"></i></td>
+                    <td class="float-right"><strong>{{i.amt}}</strong></td>
+                    <td>{{i.add_date}}</td>
+                    <td>
+                      <a href=""><i class="far fa-edit"></i></a>
+                      <a href=""><i class="far fa-trash-alt"></i></a>
+                    </td>
+                    
+                    {% empty %}
+                    <td colspan="4">
+                      <strong class="text-danger text-center" >Not have any enrties at credit side</strong>
+                    </td>
+
+                  </tr>
+
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+
+
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <label for=""><strong class="text-muted">Total:{{agg_debit}}</strong></label>
+            <input class="form-control form-control-sm col-sm-12 col-md-6 col-lg-6 float-right bg-light " id="debitsearch" type="text" placeholder="Search Debit Entries">
+            <div style="overflow-y: auto; height: 320px; display: inline-block; width: 100%;">
+              <table class="table table-sm table-borderless table-responsive-sm  ">
+                <thead>
+                  <tr>
+                    <th scope="col">Tag</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="debitsearch">
+                  
+                  {% for i in debit_data %}
+                  <tr class="table-danger">
+                    <td><i class="fas fa-minus-circle text-danger"></i></td>
+                    <td class="float-right"><strong>{{i.amt}}</strong></td>
+                    <td>{{i.add_date}}</td>
+                    <td>
+                      <a href=""><i class="far fa-edit"></i></a>
+                      <a href=""><i class="far fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <label for=""><strong class="text-muted">Total:{{agg_transfer}}</strong></label>
+            <input class="form-control form-control-sm col-sm-12 col-md-6 col-lg-6 float-right bg-light " id="transfersearch" type="text" placeholder="Search Transfer Entries">
+            <div style="overflow-y: auto; height: 320px; display: inline-block; width: 100%;">
+              <table class="table table-sm table-borderless table-responsive-sm ">
+                <thead>
+                  <tr>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Tag</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="transfersearch">
+                  
+                  {% for i in transfer_data %}
+                  
+                  {% if i.tag == 'Credit Transfer' %}
+                    
+                  <tr class="table-success">
+                    <td><i class="fas fa-plus-circle text-success"></i></td>
+                    <td class="float-right"><strong>{{i.amt}}</strong></td>
+                    <td>{{i.add_date}}</td>
+                    <td>
+                      <a href=""><i class="far fa-edit"></i></a>
+                      <a href=""><i class="far fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  {% endif %}
+
+                  {% if i.tag == 'Debit Transfer' %}
+                    
+                  <tr class="table-danger">
+                    <td><i class="fas fa-minus-circle text-danger"></i></td>
+                    <td class="float-right"><strong>{{i.amt}}</strong></td>
+                    <td>{{i.add_date}}</td>
+                    <td>
+                      <a href=""><i class="far fa-edit"></i></a>
+                      <a href=""><i class="far fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  {% endif %}
+                    
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="containter">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12" ">
+        <div class="p-2 "><h3 class="text-center text-muted">Credit History</h3></div>
+        <canvas id="creditchart" ></canvas>
+    
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="p-2 "><h3 class="text-center text-muted">Debit History</h3></div>
+        <canvas id="debitchart"  ></canvas>
+    
+    </div>
+  </div>
+</div>
+
+
+{% endblock body %}
